@@ -64,7 +64,7 @@ function login(){
 
 if(document.location.pathname=='/account/login' && data_input.length > 0){
     login() 
-    setTimeout   
+    setTimeout(() => document.location.reload(), 15000);
 }
 
 if(document.location.pathname == "/Entry.jsp"){
