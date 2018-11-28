@@ -66,6 +66,7 @@ function login(){
             }
         },3000) //  thoi gian cho truoc khi check xem login duoc hay khong, mac dinh 3s
     }, 5000) // thoi gian cho trc khi dien mat khau va email de login, giam xuong neu muon tang toc, hien tai la 5s
+    setTimeout(() => document.location.reload(), 10000);
 }
 
 if(document.location.pathname=='/account/login' && data_input.length > 0){
@@ -87,7 +88,7 @@ if(document.location.pathname == "/account/forgot-password"){
 
 if(document.location.pathname == '/account/summary') {
 
-    if(data_checked[data_checked.length - 1].length == 2){
+    if(data_checked.length == 0 || data_checked[data_checked.length - 1].length == 2){
 
         var cookie = [];
         document.cookie.split('; ').forEach(ele => {
